@@ -18,31 +18,32 @@
 // }
 
 int main(int argc, char* argv[]) {
-  HashMap* myMap = initHashMap(128);  //initialize hash map
-  uint64_t temp = insertElement(myMap, argv[1], 1); //get first element and insert
-  uint64_t tempAgain = insertElement(myMap, argv[2], 1);  //get second element and insert
-
-  // printf("%d\n", temp); 
-  // printf("value at index %d is %d with string %s\n", temp, (myMap->map[temp].val), myMap->map[temp].key);
-
-  printf("Hash of first element is: %d\nHash of second element is: %d\n", temp, tempAgain);
-
-  // node* tempNode = findElement(myMap, argv[1]);
-  // node* tempNodeAgain = findElement(myMap, argv[2]);
-
-  // if(tempNode != NULL) {
-  //   printf("Key %s has the value %d assigned\n", tempNode->key, tempNode->val);
-  // }
-  // else {
-  //   printf("Element not found\n");
-  // }
-  // if(tempNodeAgain != NULL) {
-  //   printf("Key %s has the value %d assigned\n", tempNodeAgain->key, tempNodeAgain->val);
-  // }
-  // else {
-  //   printf("Element not found\n");
-  // }
-
+  HashMap* myMap = initHashMap(23);  
+  char* variableNames[] = {
+    "",
+    "i",
+    "x",
+    "y",
+    "z",
+    "temp",
+    "aux",
+    "idx",
+    "foo",
+    "bar",
+    "src",
+    "costarring",
+    "liquid"
+  };
+  for(size_t idx = 0; idx < 13; ++idx) {
+    printf("%d: %s\n", insertElement(myMap, variableNames[idx], 1), variableNames[idx]);
+  }
+  node* temp = NULL;
+  if(temp = findElement(myMap, "z")) {
+    printf("Element found %s\n", temp->key);
+  }
+  else {
+    printf("Does not exist\n");
+  }
   myMap = deleteHashMap(myMap);
   return EXIT_SUCCESS;
 }
