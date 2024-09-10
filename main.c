@@ -8,15 +8,6 @@
 #define FNV_PRIME         0x00000100000001b3
 
 
-// uint64_t FNV1A(const char* str) {
-//   uint64_t hash = FNV_OFFSET_BASIS;
-//   while(*str != '\0') {
-//     hash ^= *(str++);
-//     hash *= FNV_PRIME;
-//   }
-//   return hash;
-// }
-
 int main(int argc, char* argv[]) {
   HashMap* myMap = initHashMap(23);  
   char* variableNames[] = {
