@@ -164,7 +164,7 @@ uint64_t insertElement(HashMap* hashmap, const char* _key, int value) {
 //Looks for key in hashmap. Returns NULL if key doesn't exist
 node* findElement(HashMap* hashmap, const char* key) {
   size_t idx = FNV1A(key) % hashmap->mapSize;
-  // printf("Hashed to %ld\n", idx);
+  printf("Hashed to %ld\n", idx);
   node* it = &hashmap->map[idx];
   // // printf("%s\n", it->key);
   while(it != NULL && it->next != NULL) {
