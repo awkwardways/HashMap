@@ -153,7 +153,8 @@ uint64_t insertElement(HashMap* hashmap, const char* _key, int value) {
   }
   
   //insert element and create next node
-  it->key = _key;
+  strcpy(it->key, _key);
+  // it->key = _key;
   it->val = value;
   it->next = (node*) malloc(sizeof(node));
   it->next->next = NULL;  //Nullify new node's next pointer to signal an unpopulated node (new node has not been occupied)
@@ -164,10 +165,10 @@ uint64_t insertElement(HashMap* hashmap, const char* _key, int value) {
 //Looks for key in hashmap. Returns NULL if key doesn't exist
 node* findElement(HashMap* hashmap, const char* key) {
   size_t idx = FNV1A(key) % hashmap->mapSize;
-  printf("Hashed to %ld\n", idx);
   node* it = &hashmap->map[idx];
   // // printf("%s\n", it->key);
   while(it != NULL && it->next != NULL) {
+    // printf("\tHASHTABLE:comparing %s to %s\n", key, it->key);
     if(!strcmp(key, it->key)) {
       return it;
     } 
